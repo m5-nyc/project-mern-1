@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/main');
+const router = require('./router')
 
 // database connection
 mongoose.connect(config.database);
@@ -26,3 +27,8 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.get('/', function(req, res){
+    res.send('homepage');
+});
+
+router(app);
