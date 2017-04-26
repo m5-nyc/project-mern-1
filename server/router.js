@@ -16,7 +16,7 @@ const REQUIRE_MEMBER = "Member";
 module.exports = function(app){
     // initializing route groups
     const apiRoutes = express.Router();
-    const authRoutes - express.Router();
+    const authRoutes = express.Router();
 
     //==================================
     // Auth Routes
