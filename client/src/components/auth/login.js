@@ -34,14 +34,14 @@ class Login extends Component {
                         <label>Email</label>
                         <Field name="email"
                                className="form-control"
-                               component={renderField}
+                               component="input"
                                type="text" />
                     </div>
                     <div className="col-md-6">
                         <label>Password</label>
                         <Field name="password"
                                className="form-control"
-                               component={renderField}
+                               component="input"
                                type="password" />
                     </div>
                     <button

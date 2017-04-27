@@ -8,7 +8,8 @@ import {
     PROTECTED_TEST
 } from './types';
 
-const API_URL = 'http://localhost:3000/api';
+export const API_URL = 'http://localhost:3000/api';
+export const CLIENT_ROOT_URL = 'http://localhost:60381';
 
 export function errorHandler(dispatch, error,type){
     let errorMessage = '';
@@ -55,7 +56,7 @@ export function registerUser({ email, firstName, lastName, password }) {
             .then(response => {
                 cookie.save('token', response.data.token, { path: '/' });
                 dispatch({ type: AUTH_USER });
-                window.location.href = ClIENT_ROOT_URL + './dashboard';
+                window.location.href = CLIENT_ROOT_URL + './dashboard';
             })
             .catch((error) => {
             errorHandler(dispatch, error.response, AUTH_ERROR)

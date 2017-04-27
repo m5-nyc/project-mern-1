@@ -4,6 +4,6 @@ module.exports = {
     // Database connection information
     'database': 'mongodb://maverick:maverick5@ds111851.mlab.com:11851/slatepeak-mern-tutorial',
     // Setting port for server
-    'port': process.env.PORT || 3000
+    'port': process.env.PORT || 3001
 };
 

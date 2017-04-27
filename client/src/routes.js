@@ -13,8 +13,8 @@ export default (
         <IndexRoute component={HomePage} />
         <Route path="register" component={Register} />
         <Route path="login" component={Login} />
-        <Route path="dashboard" component={Dashboard} />
+        <Route path="dashboard" component={RequireAuth(Dashboard)} />
 
-        <Route path="*" component={notFoundPage} />
+        <Route path="*" component={NotFoundPage} />
     </Route>
 );

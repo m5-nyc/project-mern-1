@@ -6,7 +6,7 @@ class Dashboard extends Component {
     constructor(props){
       super(props);
 
-      tbis.props.protectedTest()
+      this.props.protectedTest()
     }
 
     renderContent(){

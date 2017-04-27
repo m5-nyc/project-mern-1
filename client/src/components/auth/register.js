@@ -11,7 +11,7 @@ const form = reduxForm({
 const renderField = field => (
     <div>
         <input className="form-control" {...field.input} />
-        {field.touched && field.error && <div className="error">{field.error}</div>div>}
+        {field.touched && field.error && <div className="error">{field.error}</div>}
     </div>
 );
 
@@ -19,7 +19,7 @@ function validate(formProps){
     const errors = {};
 
     if(!formProps.firstName){
-        error.firstName = 'Please enter a first name';
+        errors.firstName = 'Please enter a first name';
     }
 
     if(!formProps.lastName){

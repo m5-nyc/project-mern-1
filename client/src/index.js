@@ -7,9 +7,15 @@ import reduxThunk from 'redux-thunk';
 import routes from './routes';
 import reducers from './reducers/index'
 import { AUTH_USER } from './actions/types'
+import cookie from 'react-cookie';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reduces);
+const store = createStoreWithMiddleware(reducers);
+
+const token = cookie.load('token');
+if(token){
+    store.dispatch({ type: AUTH_USER });
+}
 
 ReactDOM.render(
   <Provider store={store}>
