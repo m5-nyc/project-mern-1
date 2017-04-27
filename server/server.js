@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/main');
-const router = require('./router')
+const router = require('./router');
+const socketEvents = require('./socketEvents');
 
 // database connection
 mongoose.connect(config.database);
@@ -12,6 +13,8 @@ mongoose.connect(config.database);
 // start the server
 const server = app.listen(config.port);
 console.log('Your server is running on port ' + config.port + '.');
+const io = require('socket.io').listen(server);
+socketEvents(io);
 
 // basic middleware for all Express request
 app.use(logger('dev'));
