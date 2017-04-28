@@ -37,11 +37,11 @@ exports.login = function(req, res, next){
 // Registration Route
 //============================================
 exports.register = function(req, res, next){
-    // Check for registration erros
+    // Check for registration errors
     const email = req.body.email;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const password = request.body.password;
+    const password = req.body.password;
 
     // return error if no email provided
     if(!email){
@@ -68,8 +68,8 @@ exports.register = function(req, res, next){
 
         // if email is unique and password was provided, create account
         let user = new User({
-            email,
-            password,
+            email: email,
+            password: password,
             profile: { firstName: firstName, lastName: lastName }
         });
 

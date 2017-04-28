@@ -16,11 +16,11 @@ export default function(state = INITIAL_STATE, action) {
         case AUTH_USER:
           return { ...state, error: '', message: '', authenticated: true };
         case UNAUTH_USER:
-            return {...state, authenticated: false };
+            return {...state, authenticated: false, error: action.payload };
         case AUTH_ERROR:
             return {...state, error: action.payload };
         case PROTECTED_TEST:
-            return {...state, content: action.payload };
+            return {...state, content: action.payload.message };
     }
 
     return state;

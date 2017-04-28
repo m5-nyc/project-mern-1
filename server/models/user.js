@@ -18,16 +18,16 @@ const UserSchema = new Schema({
         required: true
     },
     profile: {
-        firstName: {type: String},
-        lastName: {type: String}
+        firstName: { type: String },
+        lastName: { type: String }
     },
     role: {
         type: String,
         enum: ['Member', 'Client', 'Owner', 'Admin'],
         default: 'Member'
     },
-    resetPasswordToken: {type: String},
-    resetPasswordExpires: {type: Date}
+    resetPasswordToken: { type: String },
+    resetPasswordExpires: { type: Date }
 },
 {
     timestamps: true
@@ -43,7 +43,7 @@ UserSchema.pre('save', function(next){
     bcrypt.genSalt(SALT_FACTOR, function(err, salt){
         if(err) return next(err);
 
-        bcrypt.has(user.password, salt, null, function(err, hash){
+        bcrypt.hash(user.password, salt, null, function(err, hash){
             if(err) return next(err);
             user.password = hash;
             next();
@@ -52,11 +52,11 @@ UserSchema.pre('save', function(next){
 });
 
 // method to compare password for login
-UserSchema.methods.comparePassword = function(candidatePassword, cd){
+UserSchema.methods.comparePassword = function(candidatePassword, cb){
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
-        if(err) {return cd(err); }
+        if(err) {return cb(err); }
 
-        cd(nul, isMatch);
+        cb(null, isMatch);
     });
 }
 

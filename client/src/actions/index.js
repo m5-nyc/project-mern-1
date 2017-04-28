@@ -8,8 +8,8 @@ import {
     PROTECTED_TEST
 } from './types';
 
-export const API_URL = 'http://localhost:3000/api';
-export const CLIENT_ROOT_URL = 'http://localhost:60381';
+export const API_URL = 'http://localhost:3001/api';
+export const CLIENT_ROOT_URL = 'http://localhost:3000';
 
 export function errorHandler(dispatch, error,type){
     let errorMessage = '';
